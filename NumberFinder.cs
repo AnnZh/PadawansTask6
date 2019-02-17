@@ -6,7 +6,11 @@ namespace PadawansTask6
     {
         public static int? NextBiggerThan(int number)
         {
-            string s = number.ToString();
+            if (number < 0)
+                throw new ArgumentException();
+            if(number >= int.MaxValue)
+                throw new OverflowException();
+            string s = Math.Abs(number).ToString();
             char[] arr = new char[s.Length];
             arr = s.ToCharArray();
             
@@ -23,7 +27,7 @@ namespace PadawansTask6
                 }         
             }
 
-            return 0;
+            return null;
         }
     }
 }
